@@ -35,7 +35,7 @@ function addPages(bookCard, object) {
   let bookPages = document.createElement("div");
   bookPages.classList.add("page-number");
   bookCard.appendChild(bookPages);
-  bookPages.textContent = object.pages;
+  bookPages.textContent = object.pages + " pages";
 }
 
 function addRead(bookCard, object) {
