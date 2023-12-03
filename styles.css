@@ -3,3 +3,39 @@
   padding: 0;
   font-family: "Roboto", sans-serif;
 }
+
+#library-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(550px, 1fr));
+  gap: 4px;
+  padding: 4px;
+}
+
+.card {
+  border: solid green 2px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  justify-items: center;
+  text-align: center;
+}
+
+.title {
+  grid-column: 1 / -1;
+  grid-row: 1 / 2;
+}
+
+.author {
+  grid-column: 1 / -1;
+  grid-row: 2 / 3;
+}
+
+.page-number {
+  grid-column: 1 / 2;
+  grid-row: 3 / -1;
+}
+
+.read {
+  grid-column: 2 / -1;
+  grid-row: 3 / -1;
+}
