@@ -9,10 +9,14 @@ function Book(title, author, pages, read) {
 
 const percyJackson = new Book(
   "Percy Jackson & the Olympians: The Lightning Thief",
-  "Richard Russell Riordan",
-  377,
+  "Pierce Brown",
+  382,
   false
 );
+
+const redRising = new Book("Red Rising", "Richard Russell Riordan", 377, false);
+
+const eragon = new Book("Eragon", "Christopher Paolini", 544, true);
 
 function addBookToLibrary() {
   // do stuff here
