@@ -7,6 +7,16 @@ function Book(title, author, pages, read) {
     (this.read = Boolean(read));
 }
 
+function addBookToLibrary(object) {
+  myLibrary.push(object);
+}
+
+function displayArray(array) {
+  for (let i = 0; i < array.length; i++) {
+    displayCard(array[i]);
+  }
+}
+
 function addTitle(bookCard, object) {
   let bookTitle = document.createElement("h1");
   bookTitle.classList.add("title");
@@ -39,7 +49,7 @@ function addRead(bookCard, object) {
   }
 }
 
-function addBookToLibrary(object) {
+function displayCard(object) {
   let bookCard = document.createElement("div");
   bookCard.classList.add("card");
   libraryArea.appendChild(bookCard);
@@ -66,3 +76,5 @@ const libraryArea = document.querySelector("#library-container");
 addBookToLibrary(percyJackson);
 addBookToLibrary(redRising);
 addBookToLibrary(eragon);
+
+displayArray(myLibrary);
