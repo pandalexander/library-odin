@@ -89,5 +89,30 @@ addBookToLibrary(percyJackson);
 addBookToLibrary(redRising);
 addBookToLibrary(eragon);
 
+let newTitle = document.getElementById("title");
+
 // Displays the array on the DOM
 displayArray(myLibrary);
+
+document.getElementById("submit").addEventListener("click", function (e) {
+  e.preventDefault();
+  let newBook = new Book(newTitle.value, "author", 8, false);
+  addBookToLibrary(newBook);
+  displayCard(newBook);
+  console.log(myLibrary);
+  dialog.close();
+});
+
+let showDialog = document.getElementById("show-dialog");
+let closeDialog = document.getElementById("close-dialog");
+let dialog = document.getElementById("dialog");
+
+showDialog.addEventListener("click", () => {
+  dialog.showModal();
+});
+
+// "Close" button closes the dialog
+closeDialog.addEventListener("click", (e) => {
+  e.preventDefault();
+  dialog.close();
+});

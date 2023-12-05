@@ -39,3 +39,12 @@
   grid-column: 2 / -1;
   grid-row: 3 / -1;
 }
+
+dialog {
+  margin: auto auto auto auto;
+}
+
+button {
+  width: 250px;
+  height: 100px;
+}
