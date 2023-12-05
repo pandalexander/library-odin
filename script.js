@@ -60,10 +60,16 @@ function displayCard(object) {
   addAuthor(bookCard, object);
   addPages(bookCard, object);
   addRead(bookCard, object);
+
+  // This checks the index of the object and sets the html data-index-number attribute accordingly
+  bookCard.setAttribute("data-index-number", myLibrary.indexOf(object));
 }
 
-// This function iterates through the array and creates DOM cards to display on the page
+// This function iterates through the array, deletes everything, then recreates DOM cards to display current state of the array
 function displayArray(array) {
+  while (libraryArea.hasChildNodes()) {
+    libraryArea.firstChild.remove();
+  }
   for (let i = 0; i < array.length; i++) {
     displayCard(array[i]);
   }
@@ -89,29 +95,30 @@ addBookToLibrary(percyJackson);
 addBookToLibrary(redRising);
 addBookToLibrary(eragon);
 
-let newTitle = document.getElementById("title");
-
 // Displays the array on the DOM
 displayArray(myLibrary);
 
-document.getElementById("submit").addEventListener("click", function (e) {
-  e.preventDefault();
-  let newBook = new Book(newTitle.value, "author", 8, false);
-  addBookToLibrary(newBook);
-  displayCard(newBook);
-  console.log(myLibrary);
-  dialog.close();
-});
-
+// dialog DOM variables
+let newTitle = document.getElementById("title");
 let showDialog = document.getElementById("show-dialog");
 let closeDialog = document.getElementById("close-dialog");
 let dialog = document.getElementById("dialog");
 
+// opens the dialog
 showDialog.addEventListener("click", () => {
   dialog.showModal();
 });
 
-// "Close" button closes the dialog
+// dialog submission adds book to array and re-displays array, then closes
+document.getElementById("submit").addEventListener("click", function (e) {
+  e.preventDefault();
+  let newBook = new Book(newTitle.value, "author", 8, false);
+  addBookToLibrary(newBook);
+  displayArray(myLibrary);
+  dialog.close();
+});
+
+// closes the dialog
 closeDialog.addEventListener("click", (e) => {
   e.preventDefault();
   dialog.close();
