@@ -134,3 +134,13 @@ closeDialog.addEventListener("click", (e) => {
   e.preventDefault();
   dialog.close();
 });
+
+function removeBookFromLibrary(indexLocation) {
+  const index = indexLocation;
+
+  if (index > -1) {
+    // only splice array when item is found
+    myLibrary.splice(index, 1); // 2nd parameter means remove one item only
+    displayArray(myLibrary);
+  }
+}
