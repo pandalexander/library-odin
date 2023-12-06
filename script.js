@@ -50,6 +50,13 @@ function addRead(bookCard, object) {
   }
 }
 
+function addDelete(bookCard, object) {
+  let bookDelete = document.createElement("button");
+  bookDelete.textContent = "Delete";
+  bookDelete.classList.add("delete-book");
+  bookCard.appendChild(bookDelete);
+}
+
 // This function adds all of an object's information to the DOM
 function displayCard(object) {
   let bookCard = document.createElement("div");
@@ -60,6 +67,7 @@ function displayCard(object) {
   addAuthor(bookCard, object);
   addPages(bookCard, object);
   addRead(bookCard, object);
+  addDelete(bookCard, object);
 
   // This checks the index of the object and sets the html data-index-number attribute accordingly
   bookCard.setAttribute("data-index-number", myLibrary.indexOf(object));
@@ -73,6 +81,13 @@ function displayArray(array) {
   for (let i = 0; i < array.length; i++) {
     displayCard(array[i]);
   }
+
+  // this code adds an event listener to each new delete button on the page that removes that book from the library if clicked
+  document.querySelectorAll(".delete-book").forEach(function (element) {
+    element.addEventListener("click", function () {
+      removeBookFromLibrary(element.parentNode.dataset.indexNumber);
+    });
+  });
 }
 
 // These objects are initial books already added into the library
