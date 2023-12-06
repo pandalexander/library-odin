@@ -100,19 +100,30 @@ displayArray(myLibrary);
 
 // dialog DOM variables
 let newTitle = document.getElementById("title");
+let newAuthor = document.getElementById("author");
+let newPageCount = document.getElementById("page-count");
+let newHaveRead = document.getElementById("have-read");
+
 let showDialog = document.getElementById("show-dialog");
 let closeDialog = document.getElementById("close-dialog");
 let dialog = document.getElementById("dialog");
 
 // opens the dialog
 showDialog.addEventListener("click", () => {
+  let allInputs = document.querySelectorAll("input");
+  allInputs.forEach((singleInput) => (singleInput.value = ""));
   dialog.showModal();
 });
 
 // dialog submission adds book to array and re-displays array, then closes
 document.getElementById("submit").addEventListener("click", function (e) {
   e.preventDefault();
-  let newBook = new Book(newTitle.value, "author", 8, false);
+  let newBook = new Book(
+    newTitle.value,
+    newAuthor.value,
+    newPageCount.value,
+    newHaveRead.checked
+  );
   addBookToLibrary(newBook);
   displayArray(myLibrary);
   dialog.close();
