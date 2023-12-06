@@ -50,6 +50,7 @@ function addRead(bookCard, object) {
   }
 }
 
+// This function adds a delete button to the book card DOM element
 function addDelete(bookCard, object) {
   let bookDelete = document.createElement("button");
   bookDelete.textContent = "Delete";
@@ -90,6 +91,17 @@ function displayArray(array) {
   });
 }
 
+// This function removes a book from the myLibrary array based on index location
+function removeBookFromLibrary(indexLocation) {
+  const index = indexLocation;
+
+  if (index > -1) {
+    // only splice array when item is found
+    myLibrary.splice(index, 1); // 2nd parameter means remove one item only
+    displayArray(myLibrary);
+  }
+}
+
 // These objects are initial books already added into the library
 const percyJackson = new Book(
   "Percy Jackson & the Olympians: The Lightning Thief",
@@ -113,7 +125,7 @@ addBookToLibrary(eragon);
 // Displays the array on the DOM
 displayArray(myLibrary);
 
-// dialog DOM variables
+// Selecting dialog DOM variables
 let newTitle = document.getElementById("title");
 let newAuthor = document.getElementById("author");
 let newPageCount = document.getElementById("page-count");
@@ -123,7 +135,7 @@ let showDialog = document.getElementById("show-dialog");
 let closeDialog = document.getElementById("close-dialog");
 let dialog = document.getElementById("dialog");
 
-// opens the dialog
+// Add event listener to button that opens the dialog
 showDialog.addEventListener("click", () => {
   let allInputs = document.querySelectorAll("input");
   allInputs.forEach((singleInput) => (singleInput.value = ""));
@@ -149,13 +161,3 @@ closeDialog.addEventListener("click", (e) => {
   e.preventDefault();
   dialog.close();
 });
-
-function removeBookFromLibrary(indexLocation) {
-  const index = indexLocation;
-
-  if (index > -1) {
-    // only splice array when item is found
-    myLibrary.splice(index, 1); // 2nd parameter means remove one item only
-    displayArray(myLibrary);
-  }
-}
