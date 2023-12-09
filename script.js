@@ -149,15 +149,24 @@ showDialog.addEventListener("click", () => {
 // dialog submission adds book to array and re-displays array, then closes
 document.getElementById("submit").addEventListener("click", function (e) {
   e.preventDefault();
-  let newBook = new Book(
-    newTitle.value,
-    newAuthor.value,
-    newPageCount.value,
-    newHaveRead.checked
-  );
-  addBookToLibrary(newBook);
-  displayArray(myLibrary);
-  dialog.close();
+  if (
+    newTitle.value != "" &&
+    newAuthor.value != "" &&
+    newPageCount.value != ""
+  ) {
+    let newBook = new Book(
+      newTitle.value,
+      newAuthor.value,
+      newPageCount.value,
+      newHaveRead.checked
+    );
+    addBookToLibrary(newBook);
+    displayArray(myLibrary);
+    dialog.close();
+  } else {
+    e.preventDefault();
+    dialog.close();
+  }
 });
 
 // closes the dialog
