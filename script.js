@@ -137,8 +137,12 @@ let dialog = document.getElementById("dialog");
 
 // Add event listener to button that opens the dialog
 showDialog.addEventListener("click", () => {
+  let checkbox = document.getElementById("have-read");
+  checkbox.checked = false;
+
   let allInputs = document.querySelectorAll("input");
   allInputs.forEach((singleInput) => (singleInput.value = ""));
+
   dialog.showModal();
 });
 
