@@ -103,6 +103,8 @@ body {
 #show-dialog {
   width: 100%;
   height: 5em;
+  margin-top: 2em;
+  overflow: hidden;
 }
 
 .read {
@@ -110,9 +112,6 @@ body {
 }
 
 .delete-book {
-  /* all: unset;
-  text-align: center;
-  background-color: #d55e2d; */
   border-radius: 0;
   position: absolute;
   bottom: 0;
@@ -120,12 +119,6 @@ body {
   width: 100%;
   padding: 15px 0 15px 0;
 }
-
-/* .delete-book:hover {
-  background-color: #2f5d8c;
-  color: #f9f9f9;
-  transition: 0.5s;
-} */
 
 @media only screen and (max-width: 1200px) {
   #library-container {
