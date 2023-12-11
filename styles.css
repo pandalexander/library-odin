@@ -133,8 +133,7 @@ body {
   padding-bottom: 45px;
 }
 
-.have-read-book,
-.have-read-book:hover {
+.have-read-book {
   border-radius: 0;
   position: absolute;
   bottom: 0;
@@ -144,8 +143,7 @@ body {
   background-color: green;
 }
 
-.have-not-read-book,
-.have-not-read-book:hover {
+.have-not-read-book {
   border-radius: 0;
   position: absolute;
   bottom: 0;
@@ -155,8 +153,14 @@ body {
   background-color: gray;
 }
 
-.book-button:hover {
+.have-read-book:active,
+.have-not-read-book:active,
+.have-read-book:hover,
+.have-not-read-book:hover,
+.delete-book:active,
+.delete-book:hover {
   transition: 0s;
+  background-color: #2f5d8c;
 }
 
 .delete-book {
