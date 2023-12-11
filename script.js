@@ -51,6 +51,19 @@ function addRead(bookCard, object) {
 }
 
 // This function adds a delete button to the book card DOM element
+function addReadButton(bookCard, object) {
+  let haveBookRead = document.createElement("button");
+  if (object.read == true) {
+    haveBookRead.textContent = "Read";
+    haveBookRead.classList.add("have-read-book");
+  } else {
+    haveBookRead.textContent = "Not Read";
+    haveBookRead.classList.add("have-not-read-book");
+  }
+  bookCard.appendChild(haveBookRead);
+}
+
+// This function adds a delete button to the book card DOM element
 function addDelete(bookCard, object) {
   let bookDelete = document.createElement("button");
   bookDelete.textContent = "Delete";
@@ -68,6 +81,7 @@ function displayCard(object) {
   addAuthor(bookCard, object);
   addPages(bookCard, object);
   addRead(bookCard, object);
+  addReadButton(bookCard, object);
   addDelete(bookCard, object);
 
   // This checks the index of the object and sets the html data-index-number attribute accordingly

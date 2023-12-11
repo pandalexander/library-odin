@@ -133,12 +133,32 @@ body {
   padding-bottom: 45px;
 }
 
+.have-read-book {
+  border-radius: 0;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 50%;
+  padding: 15px 0 15px 0;
+  background-color: green;
+}
+
+.have-not-read-book {
+  border-radius: 0;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 50%;
+  padding: 15px 0 15px 0;
+  background-color: gray;
+}
+
 .delete-book {
   border-radius: 0;
   position: absolute;
   bottom: 0;
   right: 0;
-  width: 100%;
+  width: 50%;
   padding: 15px 0 15px 0;
 }
 
