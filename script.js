@@ -165,7 +165,7 @@ document.getElementById("submit").addEventListener("click", function (e) {
     dialog.close();
   } else {
     e.preventDefault();
-    dialog.close();
+    alert("Please fill out all fields to add a new book!");
   }
 });
 
