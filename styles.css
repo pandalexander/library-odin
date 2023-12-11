@@ -133,7 +133,8 @@ body {
   padding-bottom: 45px;
 }
 
-.have-read-book {
+.have-read-book,
+.have-read-book:hover {
   border-radius: 0;
   position: absolute;
   bottom: 0;
@@ -143,7 +144,8 @@ body {
   background-color: green;
 }
 
-.have-not-read-book {
+.have-not-read-book,
+.have-not-read-book:hover {
   border-radius: 0;
   position: absolute;
   bottom: 0;
@@ -151,6 +153,10 @@ body {
   width: 50%;
   padding: 15px 0 15px 0;
   background-color: gray;
+}
+
+.book-button:hover {
+  transition: 0s;
 }
 
 .delete-book {

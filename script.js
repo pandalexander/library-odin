@@ -53,6 +53,8 @@ function addRead(bookCard, object) {
 // This function adds a delete button to the book card DOM element
 function addReadButton(bookCard, object) {
   let haveBookRead = document.createElement("button");
+  haveBookRead.classList.add("book-button");
+
   if (object.read == true) {
     haveBookRead.textContent = "Read";
     haveBookRead.classList.add("have-read-book");
@@ -103,6 +105,27 @@ function displayArray(array) {
       removeBookFromLibrary(element.parentNode.dataset.indexNumber);
     });
   });
+
+  document.querySelectorAll(".book-button").forEach(function (element) {
+    element.addEventListener("click", function () {
+      let text = element.parentNode.childNodes[3].textContent;
+      if (text === "This book has been read") {
+        element.parentNode.childNodes[3].textContent =
+          "This book has not been read";
+        element.textContent = "Not Read";
+        element.classList.add("have-not-read-book");
+        element.classList.remove("have-read-book");
+        changeReadStatus(element.parentNode.dataset.indexNumber);
+      } else if (text === "This book has not been read") {
+        element.parentNode.childNodes[3].textContent =
+          "This book has been read";
+        element.textContent = "Read";
+        element.classList.add("have-read-book");
+        element.classList.remove("have-not-read-book");
+        changeReadStatus(element.parentNode.dataset.indexNumber);
+      }
+    });
+  });
 }
 
 // This function removes a book from the myLibrary array based on index location
@@ -112,6 +135,19 @@ function removeBookFromLibrary(indexLocation) {
   if (index > -1) {
     // only splice array when item is found
     myLibrary.splice(index, 1); // 2nd parameter means remove one item only
+    displayArray(myLibrary);
+  }
+}
+
+function changeReadStatus(indexLocation) {
+  const index = indexLocation;
+
+  if (index > -1) {
+    if (myLibrary[index].read === true) {
+      myLibrary[index].read = false;
+    } else if (myLibrary[index].read === false) {
+      myLibrary[index].read = true;
+    }
     displayArray(myLibrary);
   }
 }
