@@ -1,13 +1,22 @@
 // Library array to hold all books
 const myLibrary = [];
 
-// This constructor creates book objects
-function Book(title, author, pages, read) {
-  (this.title = title),
-    (this.author = author),
-    (this.pages = pages),
-    (this.read = Boolean(read));
+class Book {
+  constructor(title, author, pages, read) {
+    (this.title = title),
+      (this.author = author),
+      (this.pages = pages),
+      (this.read = Boolean(read));
+  }
 }
+
+// This constructor creates book objects
+// function Book(title, author, pages, read) {
+//   (this.title = title),
+//     (this.author = author),
+//     (this.pages = pages),
+//     (this.read = Boolean(read));
+// }
 
 // This function places the object into the myLibrary array
 function addBookToLibrary(object) {
@@ -155,12 +164,12 @@ function changeReadStatus(indexLocation) {
 // These objects are initial books already added into the library
 const percyJackson = new Book(
   "Percy Jackson & the Olympians: The Lightning Thief",
-  "Pierce Brown",
+  "Rick Riordan",
   382,
   false
 );
 
-const redRising = new Book("Red Rising", "Richard Russell Riordan", 377, false);
+const redRising = new Book("Red Rising", "Pierce Brown ", 377, false);
 
 const eragon = new Book("Eragon", "Christopher Paolini", 544, true);
 
